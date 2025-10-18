@@ -1,0 +1,221 @@
+/* Form and student styles (kept separate from globals.css) */
+/*using Tailwind CSS*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* basic global resets */
+:root {
+  --bg: #ffffff;
+  --fg: #111827;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ==================== Global Container ==================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ==================== Navigation Bar ==================== */
+.navbar {
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: #facc15; /* yellow-400 */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+  background-color: #1f2937;
+  color: #d1d5db;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* ==================== Student Card ==================== */
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) { 
+  .student-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+
+@media (min-width: 1024px) { 
+  .student-grid { grid-template-columns: repeat(4, 1fr); } 
+}
+
+.student-card {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.student-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.student-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 9999px;
+  border: 2px solid #e5e7eb;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.student-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.student-card p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0.25rem 0;
+}
+
+/* ==================== Register Page ==================== */
+.form-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.form-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr; /* mobile default: 1 column */
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns on desktop */
+  }
+}
+
+.form-grid .full-width {
+  grid-column: span 1; /* mobile default */
+}
+
+@media (min-width: 640px) {
+  .form-grid .full-width {
+    grid-column: span 2; /* full-width in 2-column layout */
+  }
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333333;
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem;
+  font-size: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+.error-msg {
+  color: #dc2626;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+button {
+  grid-column: span 1; /* mobile default */
+  padding: 0.9rem 1.5rem;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  button {
+    grid-column: span 2; /* full-width in 2-column layout */
+  }
+}
+
+button:hover {
+  background-color: #1e40af;
+}
+
+/* Weather Box (for register form) */
+.weather-box {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #1d4ed8;
+}
+
+.weather-error {
+  margin-top: 0.5rem;
+  color: #ef4444;
+  font-size: 0.875rem;
+}
